@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Volvo.QFS.Utilities.String;
+using ZenSoft.Dotnet.Utils.String;
 
-namespace Volvo.QFS.Utilities.UnitTests.String
+namespace ZenSoft.Dotnet.Utils.UnitTests.String
 {
     [TestClass]
     public class StringExtensionsUnitTests

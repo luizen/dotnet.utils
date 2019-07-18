@@ -2,10 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>ZenSoft.Dotnet.Utils</AssemblyName>
+    <RootNamespace>Dotnet.Utils</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
+    <Folder Include="List\" />
+    <Folder Include="String\" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Volvo.QFS.Utilities.String
+namespace ZenSoft.Dotnet.Utils.String
 {
     /// <summary>
     /// <see cref="System.String"/> related extension methods.
