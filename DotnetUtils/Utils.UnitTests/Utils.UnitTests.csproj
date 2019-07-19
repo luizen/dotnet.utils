@@ -49,8 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="List\ListExtensionsUnitTests.cs" />
-    <Compile Include="List\ListHelperUnitTests.cs" />
+    <Compile Include="Collections\CollectionExtensionsUnitTests.cs" />
+    <Compile Include="Collections\CollectionHelperUnitTests.cs" />
     <Compile Include="String\StringExtensionsUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

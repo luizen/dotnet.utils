@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="List\" />
+    <Folder Include="Collections\" />
     <Folder Include="String\" />
   </ItemGroup>
 

@@ -15,59 +15,56 @@ namespace ZenSoft.Dotnet.Utils.String
         public const char DefaultSeparator = ',';
 
         /// <summary>
-        /// Transforms a string containing comma-separated numbers into a List of int values.
+        /// Transforms a string containing comma-separated numbers into an enumerable of int values.
         /// </summary> 
         /// <param name="str">The string instance</param>
         /// <exception cref="FormatException">When any of the values on the string is not in a valid Int format</exception>
         /// <exception cref="OverflowException">When any of the values on the string represents a number less than MinValue or greater than MaxValue.</exception>
-        /// <returns>A List of integer numbers extracted from this comma-separated instance.</returns>
-        public static IList<int> ToIntList(this string str)
+        /// <returns>An <see cref="IEnumerable{T}"/> of integer numbers extracted from this comma-separated instance.</returns>
+        public static IEnumerable<int> ToIntEnumerable(this string str)
         {
-            return str.ToIntList(DefaultSeparator);
+            return str.ToIntEnumerable(DefaultSeparator);
         }
 
         /// <summary>
-        /// Transforms a string containing numbers, separated by the given <paramref name="separator"/>, into a List of int values.
+        /// Transforms a string containing numbers, separated by the given <paramref name="separator"/>, into an enumerable of int values.
         /// </summary> 
         /// <param name="str">The string instance</param>
         /// <param name="separator">The saparator used to spliting the string into.</param>
         /// <exception cref="FormatException">When any of the values on the string is not in a valid Int format</exception>
         /// <exception cref="OverflowException">When any of the values on the string represents a number less than MinValue or greater than MaxValue.</exception>
-        /// <returns>A List of integer numbers extracted from this instance.</returns>
-        public static IList<int> ToIntList(this string str, char separator)
+        /// <returns>An <see cref="IEnumerable{T}"/> of integer numbers extracted from this instance.</returns>
+        public static IEnumerable<int> ToIntEnumerable(this string str, char separator)
         {
-            var result = new List<int>();
 
             if (!string.IsNullOrWhiteSpace(str))
             {
                 var strSplit = str.Split(separator);
                 if (strSplit.Any())
-                    result = strSplit.Select(i => int.Parse(i)).ToList();
+                    return strSplit.Select(i => int.Parse(i));
             }
 
-            return result;
+            return Enumerable.Empty<int>();
         }
 
         /// <summary>
-        /// Transforms a string containing comma-separated values into a List of string values.
+        /// Transforms a string containing comma-separated values into an enumerable of string values.
         /// </summary> 
         /// <param name="str">The string instance</param>
         /// <param name="removeEmptyEntries">True (default) to remove empty items from the result list. False to keep empty values in the result.</param>
-        /// <returns>A List of string values extracted from this comma-separated instance.</returns>
-        public static IList<string> ToStringList(this string str, bool removeEmptyEntries = true)
+        /// <returns>An <see cref="IEnumerable{T}"/> of string values extracted from this comma-separated instance.</returns>
+        public static IEnumerable<string> ToStringEnumerable(this string str, bool removeEmptyEntries = true)
         {
-            var result = new List<string>();
-
             StringSplitOptions splitOptions = removeEmptyEntries ? StringSplitOptions.RemoveEmptyEntries : StringSplitOptions.None;
             
             if (!string.IsNullOrWhiteSpace(str))
             {
                 var strSplit = str.Split(new char[] { DefaultSeparator }, splitOptions);
                 if (strSplit.Any())
-                    result = strSplit.ToList();
+                    return strSplit.AsEnumerable();
             }
 
-            return result;
+            return Enumerable.Empty<string>();
         }
 
         /// <summary>
